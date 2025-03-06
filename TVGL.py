@@ -3,19 +3,19 @@ import numpy.linalg as alg
 
 def TVGL(data, lengthOfSlice, lamb, beta, indexOfPenalty, verbose = False, eps = 3e-3, epsAbs = 1e-3, epsRel = 1e-3):        
     if indexOfPenalty == 1:
-        print 'Use l-1 penalty function'
+        print('Use l-1 penalty function')
         from inferGraphL1 import *
     elif indexOfPenalty == 2:
-        print 'Use l-2 penalty function'
+        print('Use l-2 penalty function')
         from inferGraphL2 import *
     elif indexOfPenalty == 3:
-        print 'Use laplacian penalty function'
+        print('Use laplacian penalty function')
         from inferGraphLaplacian import *
     elif indexOfPenalty == 4:
-        print 'Use l-inf penalty function'
+        print('Use l-inf penalty function')
         from inferGraphLinf import *
     else:
-        print 'Use perturbation node penalty function'
+        print('Use perturbation node penalty function')
         from inferGraphPN import *
 
     numberOfTotalSamples = data.shape[0]
@@ -38,9 +38,9 @@ def TVGL(data, lengthOfSlice, lamb, beta, indexOfPenalty, verbose = False, eps =
         empCovSet.append(empCov)
     
     # delete: for checking
-    print sampleSet.__len__() # 
+    print(sampleSet.__len__()) # 
 #    print empCovSet
-    print 'lambda = %s, beta = %s'%(lamb, beta)
+    print('lambda = %s, beta = %s'%(lamb, beta))
     
     # Define a graph representation to solve
     gvx = TGraphVX()   

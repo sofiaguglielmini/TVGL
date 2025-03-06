@@ -1,22 +1,23 @@
 import numpy as np
 import numpy.linalg as alg
+from inferGraphL1 import *
+from inferGraphL2 import *
+from inferGraphLaplacian import *
+from inferGraphLinf import *
+from inferGraphPN import *
 
-def TVGL(data, lengthOfSlice, lamb, beta, indexOfPenalty, verbose = False, eps = 3e-3, epsAbs = 1e-3, epsRel = 1e-3):        
+
+def TVGL(data, lengthOfSlice, lamb, beta, indexOfPenalty, verbose = False, eps = 3e-3, epsAbs = 1e-3, epsRel = 1e-3):
     if indexOfPenalty == 1:
         print('Use l-1 penalty function')
-        from inferGraphL1 import *
     elif indexOfPenalty == 2:
         print('Use l-2 penalty function')
-        from inferGraphL2 import *
     elif indexOfPenalty == 3:
         print('Use laplacian penalty function')
-        from inferGraphLaplacian import *
     elif indexOfPenalty == 4:
         print('Use l-inf penalty function')
-        from inferGraphLinf import *
     else:
         print('Use perturbation node penalty function')
-        from inferGraphPN import *
 
     numberOfTotalSamples = data.shape[0]
     timestamps = int(numberOfTotalSamples/lengthOfSlice)    

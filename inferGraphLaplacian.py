@@ -147,7 +147,7 @@ class TGraphVX(TUNGraph):
                              Verbose)
             return
         if Verbose:
-            print 'Serial ADMM'
+            print('Serial ADMM')
         objective = 0
         constraints = []
         # Add all node objectives and constraints
@@ -307,7 +307,7 @@ class TGraphVX(TUNGraph):
             num_processors = numProcessors
         rho = rho_param
         if verbose:
-            print 'Distributed ADMM (%d processors)' % num_processors
+            print('Distributed ADMM (%d processors)' % num_processors)
 
         # Organize information for each node in helper node_info structure
         node_info = {}
@@ -433,7 +433,7 @@ class TGraphVX(TUNGraph):
 
             if verbose:
                 # Debugging information prints current iteration #
-                print 'Iteration %d' % num_iterations
+                print('Iteration %d' % num_iterations)
             pool.map(ADMM_x, node_list)
             pool.map(ADMM_z, edge_list)
             pool.map(ADMM_u, edge_list)
@@ -492,10 +492,10 @@ class TGraphVX(TUNGraph):
         res_dual = norm(s)
         if verbose:
             # Debugging information to print convergence criteria values
-            print '  r:', res_pri
-            print '  e_pri:', e_pri
-            print '  s:', res_dual
-            print '  e_dual:', e_dual
+            print('  r:', res_pri)
+            print('  e_pri:', e_pri)
+            print('  s:', res_dual)
+            print('  e_dual:', e_dual)
         stop = (res_pri <= e_pri) and (res_dual <= e_dual)
         return (stop, res_pri, e_pri, res_dual, e_dual)
 
@@ -1279,7 +1279,7 @@ def ADMM_z(entry, index_penalty = 1):
         except SolverError:
             problem.solve(solver=SCS)
         if problem.status in [INFEASIBLE_INACCURATE, UNBOUNDED_INACCURATE]:
-            print "ECOS error: using SCS for z update"
+            print("ECOS error: using SCS for z update")
             problem.solve(solver=SCS)
         
     #    jj = 0

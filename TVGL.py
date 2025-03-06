@@ -1,10 +1,10 @@
 import numpy as np
 import numpy.linalg as alg
-from inferGraphL1 import *
-from inferGraphL2 import *
+# from inferGraphL1 import *
+# from inferGraphL2 import *
 from inferGraphLaplacian import *
-from inferGraphLinf import *
-from inferGraphPN import *
+# from inferGraphLinf import *
+# from inferGraphPN import *
 
 
 def TVGL(data, lengthOfSlice, lamb, beta, indexOfPenalty, verbose = False, eps = 3e-3, epsAbs = 1e-3, epsRel = 1e-3):
